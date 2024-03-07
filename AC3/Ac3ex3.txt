@@ -1,0 +1,37 @@
+def soma(a, b):
+    return a + b
+
+def subtracao(a, b):
+    return a - b
+
+def multiplicacao(a, b):
+    return a * b
+
+def divisao(a, b):
+    if b == 0:
+        return "Erro: divisão por zero"
+    return a / b
+
+def operacao_cli():
+    try:
+        num1 = float(input("Informe um número: "))
+        num2 = float(input("Informe outro número: "))
+        operacao = input("Informe a operação: ").lower()
+
+        if operacao == "soma":
+            resultado = soma(num1, num2)
+        elif operacao == "subtracao":
+            resultado = subtracao(num1, num2)
+        elif operacao == "multiplicacao":
+            resultado = multiplicacao(num1, num2)
+        elif operacao == "divisao":
+            resultado = divisao(num1, num2)
+        else:
+            return "operação inválida"
+
+        print("Resultado:", resultado)
+    except ValueError:
+        return "Erro: valor inserido inválido"
+
+if __name__ == "__main__":
+    operacao_cli()

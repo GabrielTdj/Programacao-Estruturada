@@ -1,0 +1,7 @@
+def dia_semana(numero):
+    """Retorna o dia da semana equivalente ao número fornecido."""
+    if 1 <= numero <= 7:
+        dias = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado']
+        return dias[numero - 1]
+    else:
+        return ''
