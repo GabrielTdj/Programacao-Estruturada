@@ -1,0 +1,17 @@
+import cmath
+
+def eq_seg_grau(a, b, c):
+    """Retorna as raízes de uma equação de segundo grau no formato ax² + bx + c = 0, supondo as raízes sempre reais."""
+    delta = b**2 - 4*a*c
+    if delta > 0:
+        return (-b + cmath.sqrt(delta)) / (2*a), (-b - cmath.sqrt(delta)) / (2*a)
+    elif delta == 0:
+        return -b / (2*a)
+    else:
+        real = -b / (2*a)
+        imag = cmath.sqrt(-delta) / (2*a)
+        return real + imag * 1j, real - imag * 1j
+
+def bissexto(ano):
+    """Retorna True se o ano for bissexto e False caso contrário."""
+    return (ano % 4 == 0 and (ano % 100 != 0 or ano % 400 == 0))

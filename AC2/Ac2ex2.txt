@@ -1,0 +1,5 @@
+def calcula_salario(valor_hora, num_horas, irpf=0.275):
+    """Calcula o salário líquido de um funcionário."""
+    salario_bruto = valor_hora * num_horas
+    salario_liquido = salario_bruto - (salario_bruto * irpf)
+    return salario_liquido
