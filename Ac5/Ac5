@@ -1,0 +1,55 @@
+import random
+
+def main():
+    # Atributos do aventureiro
+    vida_aventureiro = 100
+    ataque_aventureiro = random.randint(10, 20)
+    defesa_aventureiro = random.randint(1, 5)
+
+    # Atributos do monstro
+    vida_monstro = random.randint(60, 80)
+    ataque_monstro = random.randint(20, 30)
+
+    # Exibir atributos iniciais
+    print("Atributos do aventureiro:")
+    print(f"Vida: {vida_aventureiro}")
+    print(f"Ataque: {ataque_aventureiro}")
+    print(f"Defesa: {defesa_aventureiro}")
+    print("\nAtributos do monstro:")
+    print(f"Vida: {vida_monstro}")
+    print(f"Ataque: {ataque_monstro}")
+
+    # Loop do combate
+    rodada = 1
+    while vida_aventureiro > 0 and vida_monstro > 0:
+        print(f"\nRodada {rodada}:")
+
+        # Ataque do aventureiro
+        dano_aventureiro = random.randint(1, ataque_aventureiro)
+        vida_monstro -= dano_aventureiro
+        print(f"O aventureiro ataca o monstro, causando {dano_aventureiro} de dano.")
+
+        # Verificar se o monstro morreu
+        if vida_monstro <= 0:
+            print("O monstro morreu.")
+            break
+
+        # Ataque do monstro
+        dano_monstro = random.randint(1, ataque_monstro) - defesa_aventureiro
+        vida_aventureiro -= dano_monstro
+        print(f"O monstro ataca o aventureiro, causando {dano_monstro} de dano.")
+
+        # Verificar se o aventureiro morreu
+        if vida_aventureiro <= 0:
+            print("O aventureiro morreu.")
+            break
+
+        rodada += 1
+
+    # Exibir atributos finais
+    print("\nAtributos finais:")
+    print(f"Vida do aventureiro: {vida_aventureiro}")
+    print(f"Vida do monstro: {vida_monstro}")
+
+if __name__ == "__main__":
+    main()
