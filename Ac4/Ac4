@@ -1,0 +1,51 @@
+def read_data():
+    name = input("Digite seu nome: ")
+    if not name.strip():
+        print("Nome inválido. Encerrando o programa.")
+        return None
+
+    ap1 = float(input("Digite a nota da AP1: "))
+    ap2 = float(input("Digite a nota da AP2: "))
+    as_ = float(input("Digite a nota da AS: "))
+    ac = float(input("Digite a nota do AC: "))
+
+    if not validate_notas(ap1, ap2, as_, ac):
+        print("Notas inválidas. Encerrando o programa.")
+        return None
+
+    return name, ap1, ap2, as_, ac
+
+def validate_notas(ap1, ap2, as_, ac):
+    if ap1 < 0 or ap1 > 10 or ap2 < 0 or ap2 > 10 or as_ < 0 or as_ > 10 or ac < 0 or ac > 10:
+        return False
+    return True
+
+def calculate_media(ap1, ap2, as_, ac):
+    media = (ap1 + ap2) * 0.4 + ac * 0.2
+    if as_ < ap1:
+        media = (as_ + ap2) * 0.4 + ac * 0.2
+    elif as_ < ap2:
+        media = (ap1 + as_) * 0.4 + ac * 0.2
+    return media
+
+def display_results(name, media, approved):
+    print(f"Olá, {name}!")
+    print(f"Sua média final é: {media:.2f}")
+    if approved:
+        print("Você foi aprovado!")
+    else:
+        print("Você foi reprovado!")
+
+def main():
+    data = read_data()
+    if data is None:
+        return
+
+    name, ap1, ap2, as_, ac = data
+    media = calculate_media(ap1, ap2, as_, ac)
+    approved = media >= 7.0
+
+    display_results(name, media, approved)
+
+if __name__ == "__main__":
+    main()
