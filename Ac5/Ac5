@@ -11,7 +11,7 @@ def main():
     ataque_monstro = random.randint(20, 30)
 
     # Exibir atributos iniciais
-    print("Atributos do aventureiro:")
+    print("\nAtributos do aventureiro:")
     print(f"Vida: {vida_aventureiro}")
     print(f"Ataque: {ataque_aventureiro}")
     print(f"Defesa: {defesa_aventureiro}")
@@ -49,7 +49,7 @@ def main():
     # Exibir atributos finais
     print("\nAtributos finais:")
     print(f"Vida do aventureiro: {vida_aventureiro}")
-    print(f"Vida do monstro: {vida_monstro}")
+    print(f"Vida do monstro: {vida_monstro}\n")
 
 if __name__ == "__main__":
     main()
